@@ -1,9 +1,1 @@
-# React TypeScript Starter Pack
-
-To use this template click `Use this template`
-
-### Available Scripts
-
-`Deploy` - available to deploy your application to gh-pages
-
-`SCSS Preprocessor` - available to write your styles with modern style language
+было использовано React(Router,Suspense, lazy), Redux, TS, BULMA,использовал всего 2 ендпоинта, возвращает локацию пользователя и подстраивает под него валюту, второй берет текущий укрс валют но только в EURO( нужно оформить подписку чтобы получить доступ на обмен других валют ), так что я реализовал функцию конвертации вручную
