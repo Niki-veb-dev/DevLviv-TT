@@ -1,8 +1,6 @@
 /* eslint-disable max-len */
 /* eslint-disable no-shadow */
-import React, {
-  Suspense,
-} from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadCode } from '../../store/actions';
 import { getRates, getUserCode } from '../../store/selectors';
@@ -21,28 +19,26 @@ export const ExchangesRates: React.FC = () => {
   };
 
   return (
-    <Suspense fallback={<div>Loading data...</div>}>
-      <div className="box">
-        <div className="select">
-          <select
-            onChange={handleOnChange}
-            defaultValue={rateFrom}
-          >
-            <option value={rateFrom} hidden>{rateFrom}</option>
-            {Object.keys(rates).map((rate) => (
-              <option key={rate} value={rate}>{rate}</option>
-            ))}
-          </select>
-        </div>
-
-        <ul>
+    <div className="box">
+      <div className="select">
+        <select
+          onChange={handleOnChange}
+          defaultValue={rateFrom}
+        >
+          <option value={rateFrom} hidden>{rateFrom}</option>
           {Object.keys(rates).map((rate) => (
-            <li key={rate}>
-              {`1 - ${rate} = ${calculateExchange(rate).toFixed(3)} ${rateFrom}`}
-            </li>
+            <option key={rate} value={rate}>{rate}</option>
           ))}
-        </ul>
+        </select>
       </div>
-    </Suspense>
+
+      <ul>
+        {Object.keys(rates).map((rate) => (
+          <li key={rate}>
+            {`1 - ${rate} = ${calculateExchange(rate).toFixed(3)} ${rateFrom}`}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };

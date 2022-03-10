@@ -1,1 +1,3 @@
-export * from './ExchangesRates';
+import { ExchangesRates } from './ExchangesRates';
+
+export default ExchangesRates;
