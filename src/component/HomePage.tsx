@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { getLocation } from '../api/location';
 import { getRate } from '../api/rate';
 import { loadCode, loadRates } from '../store/actions';
@@ -21,6 +21,16 @@ export const HomePage: React.FC = () => {
     dispatch(loadRates(ratesFromServer.rates));
   };
 
+  const setActive = ({ isActive }: { isActive: boolean }) => {
+    const defaultClass = 'button';
+
+    if (isActive) {
+      return `${defaultClass} active-link is-primary`;
+    }
+
+    return defaultClass;
+  };
+
   useEffect(() => {
     loadData();
   }, []);
@@ -32,18 +42,18 @@ export const HomePage: React.FC = () => {
       <div className="navbar-end">
         <div className="navbar-item">
           <div className="buttons">
-            <Link
+            <NavLink
               to="/"
-              className="button is-primary"
+              className={setActive}
             >
               Convert
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/rates"
-              className="button is-primary"
+              className={setActive}
             >
               Exchanges rates
-            </Link>
+            </NavLink>
           </div>
         </div>
       </div>

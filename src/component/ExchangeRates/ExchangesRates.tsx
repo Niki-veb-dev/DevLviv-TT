@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-/* eslint-disable no-shadow */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadCode } from '../../store/actions';

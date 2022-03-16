@@ -6,9 +6,9 @@ import {
 import './App.scss';
 
 import React, { lazy, Suspense } from 'react';
-import { HomePage } from './component/HomePage';
 import { Convert } from './component/Convert';
 import { NotFoundPage } from './component/NotFoundPage';
+import { Layout } from './component/Layout';
 
 const ExchangesRates = lazy(() => import('./component/ExchangeRates'));
 
@@ -21,12 +21,12 @@ export const App: React.FC = () => {
 
   return (
     <div className="starter">
-      <HomePage />
-
       <Routes>
-        <Route path="/" element={<Convert />} />
-        <Route path="/rates" element={getLazyExchange()} />
-        <Route path="*" element={<NotFoundPage />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Convert />} />
+          <Route path="rates" element={getLazyExchange()} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
       </Routes>
     </div>
   );
