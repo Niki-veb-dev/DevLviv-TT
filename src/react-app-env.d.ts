@@ -12,7 +12,7 @@ type State = {
 };
 
 type ExchangeRates = {
-  rates: object
+  rates: Rates
 };
 
 type Rates = {
